@@ -1,0 +1,17 @@
+<% if @waybill %>
+  <form action="/waybills/<%= @waybill.id %>" method="post" id="edit">
+      <input type="hidden" name="_method" value="put">
+      <input name="number" placeholder="Waybill Number" value="<%= @waybill.number %>">
+      <input name="account" placeholder="Account" value="<%= @waybill.account %>">
+      <input name="charge" placeholder="Service Charge" value="<%= @waybill.charge %>"><br />
+      <input name="origin" placeholder="Origin" value="<%= @waybill.origin %>">
+      <input name="delivered_by" placeholder="Courier" value="<%= @waybill.delivered_by %>">
+      <input name="signature" placeholder="Signature" value="<%= @waybill.signature %>">
+      <input name="destination" placeholder="Destination" value="<%= @waybill.destination %>">
+      <input type="checkbox" name="delivered" <%= "checked" if @waybill.delivered %>>
+      <input type="submit">
+  </form>
+  <p><a href="/waybills/<%= @waybill.id %>/delete">Delete</a></p>
+<% else %>
+  <p>Waybill not found.</p>
+<% end %>

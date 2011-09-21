@@ -1,0 +1,10 @@
+<% if @waybill %>
+  <p>Are you sure you want to delete the waybill: <em><%= @waybill.number %></em>?</p>
+  <form action="/waybills/<%= @waybill.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Yes, Delete It!">
+    <a href="/waybills/<%= @waybill.id %>">Cancel</a>
+  </form>
+<% else %>
+  <p>Waybill not found.</p>
+<% end %>

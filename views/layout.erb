@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf8">
+    <title><%= "#{@title} | #{SITE_TITLE}" %></title>
+    <link href="/reset.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <hgroup>
+        <h1><%= SITE_TITLE %></h1>
+        <h2><%= SITE_DESCRIPTION %></h2>
+      </hgroup>
+    </header>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </body>

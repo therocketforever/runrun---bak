@@ -1,0 +1,29 @@
+  <form action="/waybills" method="post">
+    <input name="number" placeholder="Waybill Number">
+    <input name="account" placeholder="Account">
+    <input name="charge" placeholder="Service Charge"><br />
+    <input name="origin" placeholder="Origin">
+    <input name="destination" placeholder="Destination">
+    <input type="submit" value="Create Waybill!">
+  </form>
+</section>
+<hr>
+
+<% @waybills.each do |waybill| %>
+  <article <%= 'class="delivered"' if waybill.delivered %>>
+  <h2><%= waybill.number %></h2>
+  <span><p>Waybill #<%= waybill.id %></p></span>
+  <span><p>Account: <%= waybill.account %></p></span>
+  <span><p>Service Charge: <%= waybill.charge %></p></span>
+  <span><p>Origin: <%= waybill.origin %></p></span>
+  <span><p>Destination: <%= waybill.destination %></p></span>
+  <span><p>Courier: <%= waybill.delivered_by %></p></span>
+  <span><p>signature: <%= waybill.signature %></p></span>
+  <span><a href="/waybills/<%= waybill.id %>">[edit]</a></span>
+  <a href="/waybills/<%= waybill.id %>/delivered">&#8623;</a>
+  <p class="meta">Created: <%= waybill.created_at %></p>
+  <p class="meta">Delivered: <%= waybill.delivered_at %></p>
+  <p class="meta">Updated: <%= waybill.updated_at %></p>
+  <hr>
+</article>
+<% end %>
